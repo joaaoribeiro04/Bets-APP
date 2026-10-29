@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bets</title>
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<div class="w">
+ <div class="top">
+  <div><div class="eb">Apostas</div><h1>Bets</h1><p class="mut">Registo completo das apostas, com resultados e lucro.</p></div>
+  <div class="acts"><select id="fm" aria-label="Filtrar por mês"></select><button class="pri" id="new">+ Nova aposta</button></div>
+ </div>
+ <div class="card">
+  <div class="hero"><div><div class="mut">Profit</div><div class="big" id="profit">0€</div></div><svg id="chart" viewBox="0 0 600 120" preserveAspectRatio="none"></svg></div>
+  <div class="stats" id="stats"></div>
+ </div>
+ <div class="card">
+  <div class="ch">Desempenho <span class="seg"><button id="bySport" class="on">Por desporto</button><button id="byMonth">Por mês</button></span></div>
+  <div class="tw"><table id="perf"></table></div>
+  <div class="mut note">Mistas: múltiplas com jogos de desportos diferentes.</div>
+ </div>
+ <div id="list"></div>
+</div>
+
+<dialog id="dlg"><form method="dialog" id="f">
+ <h2>Nova aposta</h2>
+ <div class="row"><label>Data<input type="date" id="fd" required></label><label>Valor apostado (€)<input type="number" id="fs" step="0.01" min="0.01" required></label></div>
+ <label>Seleções</label><div id="legs"></div>
+ <button type="button" id="addleg">+ Adicionar seleção</button>
+ <div class="row top-gap"><label>Resultado<select id="fr"><option value="pending">Pendente</option><option value="won">Ganho</option><option value="lost">Perdido</option><option value="void">Anulada</option></select></label><label>Odd total<input id="ft" readonly></label></div>
+ <p class="err" id="err" role="alert"></p>
+ <div class="end"><button type="button" id="cx">Cancelar</button><button class="pri" type="submit">Guardar</button></div>
+</form></dialog>
+</body>
+</html>
